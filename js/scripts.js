@@ -29,21 +29,27 @@
             }
         }
     });
+	
 	// Hide show bar
 	var prevScrollpos = window.pageYOffset;
 	window.onscroll = function() {
 		var currentScrollPos = window.pageYOffset;
 		var elem = document.getElementById('sideNav');
+		var elemtr = document.getElementById('google_translate_element');
+		
 		const mq = window.matchMedia( "(min-width: 992px)" );
 		if (!mq.matches) {
 			if (prevScrollpos > currentScrollPos) {
 				elem.style.top = "0";
+				elemtr.style.top = "60px";
 			} else {
 				elem.style.top = "-60px";
+				elemtr.style.top = "0px";
 			}
 			prevScrollpos = currentScrollPos;
 		} else {
 			elem.style.top = "0";
+			elemtr.style.top = "0";
 		}
 	}
 	
