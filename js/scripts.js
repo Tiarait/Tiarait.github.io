@@ -39,10 +39,10 @@
 		if (!mq.matches) {
 			if (prevScrollpos > currentScrollPos) {
 				elem.style.top = "0";
-				elemtr.style.top = "0";
+				elemtr.style.top = "60px";
 			} else {
 				elem.style.top = "-60px";
-				elemtr.style.top = "-60px";
+				elemtr.style.top = "0";
 			}
 			prevScrollpos = currentScrollPos;
 		} else {
