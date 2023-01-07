@@ -9837,6 +9837,7 @@ button.bg-dark:focus {
 
 .text-primary {
   color: #495057 !important;
+  font-weight: 800;
 }
 
 a.text-primary:hover, a.text-primary:focus {
