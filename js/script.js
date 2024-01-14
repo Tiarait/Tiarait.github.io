@@ -5,11 +5,11 @@ $(document).ready(function() {
 	    event.preventDefault();
 	    defaultLang();
 		if (lang == 'en') {
-		    localStorage.setItem('lang', 'uk');
-		    lang = 'uk';
-		} else if (lang == 'uk') {
 		    localStorage.setItem('lang', 'ru');
 		    lang = 'ru';
+		} else if (lang == 'uk') {
+		    localStorage.setItem('lang', 'en');
+		    lang = 'en';
 		} else {
 		    localStorage.setItem('lang', 'en');
 		    lang = 'en';
