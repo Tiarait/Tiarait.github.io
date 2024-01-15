@@ -11,8 +11,8 @@ $(document).ready(function() {
 		    localStorage.setItem('lang', 'en');
 		    lang = 'en';
 		} else {
-		    localStorage.setItem('lang', 'en');
-		    lang = 'en';
+		    localStorage.setItem('lang', 'uk');
+		    lang = 'uk';
 		}
 		$('#switch-lang i').text(lang);
 		buildContent();
