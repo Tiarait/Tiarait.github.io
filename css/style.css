@@ -1284,6 +1284,8 @@ a.card {
 }
 
 .full .content {
+    display: flex;
+    justify-content: center;
     transform: scale(0.5);
     width: 100%;
     transition: all 1s ease-in-out;
@@ -1294,6 +1296,9 @@ a.card {
     --padding-vertical: 3rem;
     padding: var(--padding-vertical) var(--padding-horizontal);
     padding-top: 102px!important;
+}
+.markdown-body {
+    max-width: 1024px;
 }
 .night .full .content {
     color: white;
