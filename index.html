@@ -2,26 +2,27 @@
 <html lang="en">
     <head>
         <meta http-equiv="Cache-control" content="public">
-        <title>Vasyl Raiskyi</title>
+        <title>Tiar App</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <meta name="color-scheme" content="light only"/>
-        <meta name="description" content="TiarDev"/>
-        <meta property="og:site_name" content="Vasyl Raiskyi"/>
-        <meta property="og:title" content="Vasyl Raiskyi"/>
+        <meta name="color-scheme" content="light dark"/>
+        <meta name="description" content="Tiar App"/>
+        <meta property="og:site_name" content="Tiar App"/>
+        <meta property="og:title" content="Tiar App"/>
         <meta property="og:type" content="website"/>
-        <meta property="og:description" content="TiarDev"/>
-        <meta property="og:image" content="https://tiarait.github.io/assets/img/card.jpg?v=b9dc5d1b"/>
+        <meta property="og:description" content="Tiar App"/>
+        <meta property="og:image" content="./assets/img/card.jpg?v=b9dc5d1b"/>
         <meta property="og:image:type" content="image/jpeg"/>
         <meta property="og:image:width" content="1280"/>
         <meta property="og:image:height" content="800"/>
-        <link href="/assets/img/icon.png" rel="shortcut icon">
+        <link href="./assets/img/icon.png" rel="shortcut icon">
         <meta property="og:url" content="https://tiarait.github.io/"/>
         <meta property="twitter:card" content="summary_large_image"/>
-        <link rel="canonical" href="https://6881ccd20d634611.demo.carrd.co"/>
         <link href="https://fonts.googleapis.com/css2?display=swap&family=Source+Sans+Pro:ital,wght@0,300;0,400;1,300;1,400" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="./css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.0/dist/katex.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/@wcj/markdown-to-html/dist/marked.css">
         <noscript>
             <style>
                 body {
@@ -41,39 +42,22 @@
     <body>
         <div id="bg"></div>
         <div id="wrapper">
-            <div id="main">
-                <div class="inner">
-                    <div id="container01" class="container columns">
-                        <div id="container02" class="wrapper">
-                            <div class="inner">
-                                <div id="left-block">
-                                    <div id="title" class="image" style="display: flex;align-items: center;">
-                                        <div class="frame" id="image01">
-                                            <img src="/assets/img/profile-day.jpg" alt="">
-                                        </div>
-                                        <div style="margin: 5px;"></div>
-                                        <h1 id="text02"></h1>
-                                    </div>
-                                    <h2 id="text03"></h2>
-                                    <p id="text01"></p>
-                                    <ul class="icons01 icons"></ul>
-                                </div>
-                                <div id="right-block">
-                                    <ul id="buttons01" class="buttons"></ul>
-                                </div>
-                            </div>
-                            <div id="container-switch">
-                                <label id="switch-lang" class="switch theme"><i class=""></i></label>
-                                <input id="checkbox" type="checkbox" />
-                                <label id="switch-theme" class="switch"><i class="bi bi-sun-fill"></i></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="row row-horizon"></div>
         </div>
-        <script src="/js/data-script.js"></script>
-        <script src="/js/jquery-3.6.1.min.js"></script>
-        <script src="/js/script.js"></script>
+        <div class="full bg" style="display:none"></div>
+        <div class="full" style="display:none">
+            <div class="content"></div>
+            <div class="header"></div>
+        </div>
+        <div id="container-switch">
+            <label id="switch-back" class="switch theme" style="display:none"><i class="bi bi-arrow-left"></i></label>
+            <label id="switch-lang" class="switch theme"><i class=""></i></label>
+            <input id="checkbox" type="checkbox" />
+            <label id="switch-theme" class="switch"><i class="bi bi-sun-fill"></i></label>
+        </div>
+        <script src="./js/data-script.js"></script>
+        <script src="./js/jquery-3.6.1.min.js"></script>
+        <script src="https://unpkg.com/@wcj/markdown-to-html/dist/markdown.min.js"></script>
+        <script src="./js/script.js"></script>
     </body>
 </html>
