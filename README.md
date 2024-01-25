@@ -1,17 +1,42 @@
-## License
+[![Android][gp-shield]][gp-url] [![LinkedIn][linkedin-shield]][linkedin-url] [![Youtube][youtube-shield]][youtube-url]
 
-```
-Copyright 2023 Tiarait
+<img src="/assets/img/profile-night.jpg" align="left"
+width="15%" hspace="10" vspace="10">
+# About me
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+Welcome. I am a developer from 🇺🇦Ukraine. If you have proposals for development - write to me.
+I have experience in development both for Android TV and for mobile devices.
 
-   http://www.apache.org/licenses/LICENSE-2.0
+<br><br>
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+# Skills
+
+#### PROGRAMMING LANGUAGES & TOOLS
+-  Android SDK, Java, Kotlin
+
+#### Experience of use
+- LiveData, Worker, RxJava, Coroutines, ROOM, SQLite
+- Webview, OkHttp3, Ktor
+- REST API, Network protocols, XML, JSON
+- Custom view, Leanback, AndroidTV, ExoPlayer
+- Gradle, Proguard
+- Git, HTML, CSS, JavaScript
+
+# Experiance
+- Android developer in Anterra Group - Georgia (December 2019 - **Now**)
+
+- Android development for yoursels. Developed online cinema Kinotor for android devices. And client for Kinotrend. (November 2018 - October 2019)
+
+# Education
+- MASTER Software engineering in CHERNIHIV NATIONAL TECHNOLOGICAL UNIVERSITY (September 2017 - June 2019)
+- BACHELOR Software engineering in INTERNATIONAL SCIENCE AND TECHNOLOGY UNIVERSITY (September 2013 - June 2017)
+
+
+
+[linkedin-url]: https://linkedin.com/in/tiarait
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[version-shield]: https://img.shields.io/badge/Version-1.0.25-blue?style=for-the-badge
+[gp-url]: https://play.google.com/store/apps/dev?id=4630324141005225998
+[gp-shield]: https://img.shields.io/badge/-GooglePlay-green.svg?style=for-the-badge&logo=googleplay&colorB=green
+[youtube-shield]: https://img.shields.io/badge/-YOUTUBE-red.svg?style=for-the-badge&logo=youtube&colorB=red
+[youtube-url]: https://www.youtube.com/@tiardev
