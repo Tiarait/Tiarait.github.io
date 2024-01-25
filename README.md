@@ -1,13 +1,13 @@
 [![Android][gp-shield]][gp-url] [![LinkedIn][linkedin-shield]][linkedin-url] [![Youtube][youtube-shield]][youtube-url]
 
-<img src="/assets/img/profile-night.jpg" align="left"
-width="15%" hspace="10" vspace="10">
+<img src="/assets/img/profile.jpg" align="left"
+width="25%" hspace="10" vspace="10">
 # About me
 
 Welcome. I am a developer from 🇺🇦Ukraine. If you have proposals for development - write to me.
 I have experience in development both for Android TV and for mobile devices.
 
-<br><br>
+<br><br><br><br><br><br>
 
 # Skills
 
