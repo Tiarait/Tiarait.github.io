@@ -23,7 +23,7 @@ I have experience in development both for Android TV and for mobile devices.
 - Git, HTML, CSS, JavaScript
 
 # Experiance
-- Android developer in Anterra Group - Georgia (December 2019 - **Now**)
+- Android developer in Anterra Group - Georgia (December 2019 - **June 2024**)
 
 - Android development for yoursels. Developed online cinema Kinotor for android devices. And client for Kinotrend. (November 2018 - October 2019)
 
