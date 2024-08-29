@@ -242,6 +242,16 @@ article {
   background: var(--light-gray-70);
   margin: 16px 0;
 }
+.separator.custom {
+  margin-bottom: 32px; 
+  margin-top: 32px;
+}
+@media (min-width: 1024px) {
+    .separator.custom { 
+      margin-bottom: 70px; 
+      margin-top: 65px;
+    }
+}
 
 .icon-box {
   position: relative;
