@@ -1,13 +1,13 @@
 [![Android][gp-shield]][gp-url] [![LinkedIn][linkedin-shield]][linkedin-url] [![Youtube][youtube-shield]][youtube-url]
 
-<img src="/assets/img/profile.jpg" align="left"
-width="25%" hspace="10" vspace="10">
 # About me
-
-Welcome. I am a developer from 🇺🇦Ukraine. If you have proposals for development - write to me.
-I have experience in development both for Android TV and for mobile devices.
-
+<img src="/assets/images/my-avatar.png" align="right"
+width="25%" hspace="10" vspace="10">
+Welcome. I'm <b>Vasyl Raiskyi</b>, a freelance <b>Android developer</b> from 🇺🇦 <b>Ukraine</b>. I have experience in developing applications for both Android TV and mobile devices.
+As a self-taught developer, I'm always eager to take on new challenges and seize opportunities to learn and grow. I'm dedicated to improving my skills and have a strong work ethic. Being a team player, I'm always open to learning new technologies and languages.
+I'm here to assist you. Please <b>explore my portfolio</b>, and feel free to reach out to discuss your project in more detail.
 <br><br><br><br><br><br>
+
 
 # Skills
 
