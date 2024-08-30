@@ -458,10 +458,6 @@ main {
   z-index: -1;
 }
 
-.info_more-btn:hover { background: var(--bg-gradient-yellow-1); }
-
-.info_more-btn:hover::before { background: var(--bg-gradient-yellow-2); }
-
 .info_more-btn span { display: none; }
 
 .sidebar-info_more {
@@ -523,12 +519,6 @@ main {
 }
 
 
-.social-item .social-link:hover { color: var(--light-gray); }
-
-
-
-
-
 /*-----------------------------------*\
   #NAVBAR
 \*-----------------------------------*/
@@ -560,9 +550,6 @@ main {
   padding: 20px 7px;
   transition: color var(--transition-1);
 }
-
-.navbar-link:hover,
-.navbar-link:focus { color: rgb(255, 255, 255); }
 
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
@@ -615,10 +602,6 @@ a.service-item {
   border: 1px solid var(--smoky-black);
   will-change: transform;
   transition: var(--transition-1);
-}
-a.service-item:hover {
-  transform: scale(1.07);
-  border: 1px solid var(--color-icons);
 }
 
 .service-item::before {
@@ -783,9 +766,6 @@ a.service-item:hover {
   opacity: 0.7;
 }
 
-.modal-close-btn:hover,
-.modal-close-btn:focus { opacity: 1; }
-
 .modal-close-btn ion-icon { --ionicon-stroke-width: 50px; }
 
 .modal-avatar-box {
@@ -846,11 +826,6 @@ a.service-item:hover {
   filter: grayscale(1);
   transition: var(--transition-1);
 }
-
-.clients-item img:hover { filter: grayscale(0); }
-
-
-
 
 
 /*-----------------------------------*\
@@ -1068,8 +1043,6 @@ a.service-item:hover {
   border-radius: 8px;
 }
 
-.select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
-
 .project-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -1116,8 +1089,6 @@ a.service-item:hover {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
-
 .project-item-icon-box {
   --scale: 0.8;
 
@@ -1137,15 +1108,6 @@ a.service-item:hover {
   transition: var(--transition-1);
 }
 
-.project-item > a:hover .project-item-icon-box {
-  --scale: 1;
-  opacity: 1;
-}
-.project-list .project-item > a:hover .project-item-icon-box {
-  --scale: 1.5;
-  opacity: 1; 
-}
-
 .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
 
 .project-img img {
@@ -1153,22 +1115,6 @@ a.service-item:hover {
   height: 100%;
   object-fit: cover;
   transition: var(--transition-1);
-}
-
-.project-item > a:hover img {
-   transform: scale(1.1); 
-   will-change: transform;
-}
-.project-list .project-item > a:hover {
-  transform: scale(1.07);
-  will-change: transform;
-}
-.project-list .project-item > a:hover .content-card {
-  border: 1px solid var(--color-icons);
-}
-.project-list .project-item > a:hover .content-card::before {
-  z-index: 1;
-  background: hsl(0deg 0% 0% / 32%);
 }
   
 
@@ -1253,11 +1199,6 @@ a.service-item:hover {
   transition: var(--transition-1);
 }
 
-.blog-post-item > a:hover .blog-banner-box img {
-  transform: scale(1.1); 
-  will-change: transform;
-}
-
 .blog-content { padding: 15px; }
 
 .blog-meta {
@@ -1287,17 +1228,12 @@ a.service-item:hover {
   transition: var(--transition-1);
 }
 
-.blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
-
 .blog-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -1390,19 +1326,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn ion-icon { font-size: 16px; }
 
-.form-btn:hover { background: var(--bg-gradient-yellow-1); }
-
-.form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
-
 .form-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-
-.form-btn:disabled:hover { background: var(--border-gradient-onyx); }
-
-.form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
-
 
 
 
@@ -1792,8 +1719,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     transition: var(--transition-1);
   }
 
-  .filter-item button:hover { color: var(--light-gray-70); }
-
   .filter-item button.active { color: var(--orange-yellow-crayola); }
 
   /* portfolio and blog grid */
@@ -1952,8 +1877,6 @@ textarea.form-input::-webkit-resizer { display: none; }
                 inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
   }
 
-  body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
-
   body::-webkit-scrollbar-button { height: 60px; }
 @media (min-width: 1250px) {
 
@@ -2089,4 +2012,58 @@ html[data-theme="day"] #switch-theme .day {
       left: 0; right: 0;
       margin: auto;
   }
+}
+
+@media(hover:hover) {
+  .info_more-btn:hover { background: var(--bg-gradient-yellow-1); }
+  .info_more-btn:hover::before { background: var(--bg-gradient-yellow-2); }
+  .social-item .social-link:hover { color: var(--light-gray); }
+  .navbar-link:hover { color: rgb(255, 255, 255); }
+  .modal-close-btn:hover { opacity: 1; }
+  a.service-item:hover {
+    transform: scale(1.07);
+    border: 1px solid var(--color-icons);
+  }
+  .clients-item img:hover { filter: grayscale(0); }
+  .select-item button:hover { --eerie-black-2: hsl(240, 2%, 20%); }
+  .project-item > a:hover .project-img::before { background: hsla(0, 0%, 0%, 0.5); }
+  .project-item > a:hover .project-item-icon-box {
+    --scale: 1;
+    opacity: 1;
+  }
+  .project-list .project-item > a:hover .project-item-icon-box {
+    --scale: 1.5;
+    opacity: 1; 
+  }
+  .project-item > a:hover img {
+    transform: scale(1.1); 
+    will-change: transform;
+  }
+  .project-list .project-item > a:hover {
+    transform: scale(1.07);
+    will-change: transform;
+  }
+  .project-list .project-item > a:hover .content-card {
+    border: 1px solid var(--color-icons);
+  }
+  .project-list .project-item > a:hover .content-card::before {
+    z-index: 1;
+    background: hsl(0deg 0% 0% / 32%);
+  }
+  .blog-post-item > a:hover .blog-banner-box img {
+    transform: scale(1.1); 
+    will-change: transform;
+  }
+  .blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
+  .form-btn:hover { background: var(--bg-gradient-yellow-1); }
+
+  .form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
+
+  .form-btn:disabled:hover { background: var(--border-gradient-onyx); }
+
+  .form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
+
+  .filter-item button:hover { color: var(--light-gray-70); }
+  body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
+
 }
