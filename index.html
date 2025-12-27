@@ -3,615 +3,172 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="color-scheme" content="light dark"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiar Apps</title>
-    <meta name="description" content="Vasyl Raiskyi"/>
+    <title>Vasyl Raiskyi | Android Developer</title>
+    <meta name="description"
+        content="Vasyl Raiskyi - Freelance Android Developer from Ukraine. Building robust mobile applications.">
 
-    <meta property="og:site_name" content="Tiar App"/>
-    <meta property="og:title" content="Tiar App"/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:description" content="Tiar App"/>
-    <meta property="og:image" content="./assets/img/card.jpg?v=b9dc5d1b"/>
-    <meta property="og:image:type" content="image/jpeg"/>
-    <meta property="og:image:width" content="1280"/>
-    <meta property="og:image:height" content="800"/>
-    <meta property="og:url" content="https://tiarait.github.io/"/>
-    <meta property="twitter:card" content="summary_large_image"/>
-
-    <!--
-      - favicon
-    -->
-    <link rel="shortcut icon" href="./assets/images/icon.png" type="image/x-icon">
-
-    <!--
-      - custom css link
-    -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-
-
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
-    <!--
-      - google font link
-    -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <script>
-      var theme = localStorage.getItem('theme');
-      if (theme == null) {
-          if (window.matchMedia( "(prefers-color-scheme: dark)" ).matches ) {
-              theme = "night";
-          } else {
-              theme = "day";
-          }
-      }
-      localStorage.setItem("theme", theme);
-      document.documentElement.setAttribute("data-theme", theme);
-    </script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="./assets/images/icon.png" type="image/x-icon">
 </head>
 
 <body>
-    <div class="gradient" style="position: fixed; z-index: -1;"></div>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress"></div>
 
-<!--
-  - #MAIN
--->
-
-<main>
-
-    <!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-        <div class="sidebar-info">
-
-            <figure class="avatar-box">
-                <img src="./assets/images/my-avatar.png" alt="Vasyl Raiskyi" width="80">
-            </figure>
-
-            <div class="info-content">
-                <h1 class="name" title="Vasyl Raiskyi">Vasyl Raiskyi</h1>
-
-                <p class="title">Android Developer</p>
-            </div>
-
-            <button class="info_more-btn" data-sidebar-btn>
-                <span>Show Contacts</span>
-
-                <ion-icon name="chevron-down"></ion-icon>
-            </button>
-
-        </div>
-
-        <div class="sidebar-info_more">
-
-            <div class="separator custom"></div>
-
-            <ul class="contacts-list">
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="mail-outline"></ion-icon>
-                    </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Email</p>
-
-                        <a href="mailto:tiar.develop@gmail.com" class="contact-link">tiar.develop@gmail.com</a>
-                    </div>
-
-                </li>
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="phone-portrait-outline"></ion-icon>
-                    </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Phone</p>
-
-                        <a href="tel:+380953398123" class="contact-link">+380953398123</a>
-                    </div>
-
-                </li>
-
-                <li class="contact-item">
-
-                    <div class="icon-box">
-                        <ion-icon name="location-outline"></ion-icon>
-                    </div>
-
-                    <div class="contact-info">
-                        <p class="contact-title">Location</p>
-
-                        <address>Ukraine</address>
-                    </div>
-
-                </li>
-
-            </ul>
-
-            <div class="separator"></div>
-
-            <ul class="social-list">
-
-                <li class="social-item">
-                    <a href="https://github.com/tiarait" class="social-link" target="_blank">
-                        <ion-icon name="logo-github"></ion-icon>
-                    </a>
-                </li>
-
-                <li class="social-item">
-                    <a href="https://linkedin.com/in/tiarait" class="social-link"
-                       target="_blank">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                </li>
-
-                <li class="social-item">
-                    <a href="https://wa.me/380933398172?text=Hi, Vasyl" class="social-link"
-                       target="_blank">
-                        <ion-icon name="logo-whatsapp"></ion-icon>
-                    </a>
-                </li>
-
-                <li class="social-item">
-                    <a href="https://t.me/tiardev" class="social-link" target="_blank">
-                        <ion-icon name="send-sharp"></ion-icon>
-                    </a>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </aside>
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-        <!--
-          - #NAVBAR
-        -->
-
+    <!-- Navigation -->
+    <header>
         <nav class="navbar">
-
-            <ul class="navbar-list">
-
-                <li class="navbar-item">
-                    <button class="navbar-link  active" data-nav-link>About</button>
-                </li>
-
-                <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Resume</button>
-                </li>
-
-                <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Portfolio</button>
-                </li>
-
-                <li class="navbar-item">
-                    <button class="navbar-link" data-nav-link>Contacts</button>
-                </li>
-
-                <li class="navbar-item" id="switch-theme">
-                    <button class="day navbar-link"><i class="bi bi-sun-fill"></i></button>
-                    <button class="night navbar-link"><i class="bi bi-moon-fill"></i></button>
-                </li>
-
+            <a href="#hero" class="logo">VR</a>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
-
+            <div class="controls">
+                <button id="lang-switch" class="btn-icon">EN</button>
+                <button id="theme-switch" class="btn-icon"><i class="bi bi-moon-stars-fill"></i></button>
+            </div>
         </nav>
+    </header>
 
-
-        <!--
-          - #ABOUT
-        -->
-
-        <article class="about  active" data-page="about">
-
-            <header>
-                <h2 class="h2 article-title">About me</h2>
-            </header>
-
-            <section class="about-text">
-                <p>Welcome to my portfolio website! I'm <b>Vasyl Raiskyi</b>, a freelance <b>Android developer</b> from 🇺🇦 <b>Ukraine</b>. I have experience in developing applications for both Android TV and mobile devices.</p>
-
-                <p>As a self-taught developer, I'm always eager to take on new challenges and seize opportunities to learn and grow. I'm dedicated to improving my skills and have a strong work ethic. Being a team player, I'm always open to learning new technologies and languages.</p>
-
-                <p>Whether you need a custom app built from scratch or modifications to an existing one, I'm here to assist you. Please <b>explore my portfolio</b>, and feel free to reach out to discuss your project in more detail.</p>
-            </section>
-
-
-            <!--
-             - Techinal skills
-           -->
-            <section class="service">
-
-                <h3 class="h3 service-title">Technical Skills</h3>
-
-                <ul class="service-list">
-
-                    <li class="service-item">
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Languages </h4>
-                            <p class="service-item-text">
-                                Java, Kotlin, JavaScript (Beginner), Dart (Beginner)
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="service-item">
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Frameworks </h4>
-                            <p class="service-item-text">
-                                Android SDK, Flutter, Node.js
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="service-item">
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Database </h4>
-                            <p class="service-item-text">
-                                Sqlite, RoomDb
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="service-item">
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Networking </h4>
-                            <p class="service-item-text">
-                                REST API, Ktor, OkHttp
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="service-item">
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Architechures </h4>
-                            <p class="service-item-text">
-                                MVVM, Clean architechure
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="service-item">
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Integrations </h4>
-                            <p class="service-item-text">
-                                Google AdMob
-                            </p>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </section>
-
-
-            <!--
-              - testimonials modal
-            -->
-
-            <div class="modal-container" data-modal-container>
-
-                <div class="overlay" data-overlay></div>
-
-                <section class="testimonials-modal">
-
-                    <button class="modal-close-btn" data-modal-close-btn>
-                        <ion-icon name="close-outline"></ion-icon>
-                    </button>
-
-                    <div class="modal-img-wrapper">
-                        <figure class="modal-avatar-box">
-                            <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80"
-                                 data-modal-img>
-                        </figure>
-
-                        <img src="./assets/images/icon-quote.svg" alt="quote icon">
-                    </div>
-
-                    <div class="modal-content">
-
-                        <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-                        <time datetime="2021-06-14">14 June, 2021</time>
-
-                        <div data-modal-text>
-                            <p>
-                                Richard was hired to create a corporate identity. We were very
-                                pleased with the work done. She has a
-                                lot of experience
-                                and is very concerned about the needs of client. Lorem ipsum dolor
-                                sit amet, ullamcous cididt
-                                consectetur adipiscing
-                                elit, seds do et eiusmod tempor incididunt ut laborels dolore
-                                magnarels alia.
-                            </p>
-                        </div>
-
-                    </div>
-
-                </section>
-
-            </div>
-
-
-        </article>
-
-
-        <!--
-          - #RESUME
-        -->
-
-        <article class="resume" data-page="resume">
-
-            <header>
-                <h2 class="h2 article-title">Resume</h2>
-            </header>
-            <div class="resume_container">
-                <img src="./assets/images/Resume_Vasyl_Raiskyi_en_preview.jpg" alt="" class="resumeee">
-                <div class="resume_buttons">
-                    <a href="./assets/images/Resume_Vasyl_Raiskyi_en.pdf" target="_blank" class="service-item">
-                        <div class="icon-box">
-                            <ion-icon name="cloud-download-sharp"></ion-icon>
-                        </div>
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Download</h4>
-                            <p class="service-item-text">
-                                English
-                            </p>
-                        </div>
-                    </a>
-                    <a href="./assets/images/Resume_Vasyl_Raiskyi_ua.pdf" target="_blank" class="service-item">
-                        <div class="icon-box">
-                            <ion-icon name="cloud-download-sharp"></ion-icon>
-                        </div>
-                        <div class="service-content-box">
-                            <h4 class="h4 service-item-title">Download</h4>
-                            <p class="service-item-text">
-                                Ukrainian
-                            </p>
-                        </div>
-                    </a>
+    <main>
+        <!-- Hero Section with Parallax Background -->
+        <section id="hero" class="hero">
+            <!-- Parallax Layers -->
+            <div class="parallax-container">
+                <div class="parallax-layer layer-back" data-speed="0.2">
+                    <img src="assets/images/mountain-back.png" alt="Background Mountains">
+                </div>
+                <div class="parallax-layer layer-mid" data-speed="0.5">
+                    <img src="assets/images/mountain-mid.png" alt="Middle Mountains">
+                </div>
+                <div class="parallax-layer layer-front" data-speed="0.8">
+                    <img src="assets/images/mountain-front.png" alt="Front Mountains">
+                </div>
+                <div class="parallax-layer layer-clouds" data-speed="1.2">
+                    <img src="assets/images/clouds.png" alt="Clouds">
                 </div>
             </div>
 
-        </article>
-
-        <!--
-          - #PORTFOLIO
-        -->
-
-        <article class="portfolio" data-page="portfolio">
-
-            <header>
-                <h2 class="h2 article-title">Portfolio</h2>
-            </header>
-
-            <section class="projects">
-
-                <!-- <ul class="filter-list">
-
-                    <li class="filter-item">
-                        <button class="active" data-filter-btn>All</button>
-                    </li>
-
-                    <li class="filter-item">
-                        <button data-filter-btn>Native apps</button>
-                    </li>
-
-                    <li class="filter-item">
-                        <button data-filter-btn>Cross platform apps</button>
-                    </li>
-
-                </ul> -->
-
-                <div class="filter-select-box">
-
-                    <button class="filter-select" data-select>
-
-                        <div class="select-value" data-selecct-value>Select category</div>
-
-                        <div class="select-icon">
-                            <ion-icon name="chevron-down"></ion-icon>
-                        </div>
-
-                    </button>
-
-                    <ul class="select-list">
-
-                        <li class="select-item">
-                            <button data-select-item>All</button>
-                        </li>
-
-                        <li class="select-item">
-                            <button data-select-item>Native apps</button>
-                        </li>
-
-                        <li class="select-item">
-                            <button data-select-item>Cross platform apps</button>
-                        </li>
-
-                    </ul>
-
+            <div class="hero-content">
+                <h1 data-i18n="hero.title">Vasyl Raiskyi</h1>
+                <p class="subtitle" data-i18n="hero.subtitle">Android Developer</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Kotlin</span>
+                    <span class="tech-badge">Java</span>
+                    <span class="tech-badge">Python</span>
                 </div>
+                <a href="#projects" class="btn-primary" data-i18n="hero.cta">View Portfolio</a>
+            </div>
 
-                <ul class="project-list">
-                    <li class="project-item  active" data-filter-item data-category="mobile app">
-                        <a href="/AI-MUSE-Intro/" target="_blank">
-                            <ul class="content-card">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline" role="img" class="md hydrated" aria-label="eye outline"></ion-icon>
-                                </div>
-                                <figure class="project-img">
-                                    <img src="./assets/images/portfolio/banner_aimuse.png" alt="AI Muse" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">AI Muse</h3>
-                                <p class="project-description">
-                                    App offers a powerful tool for generating images using advanced AI APIs. It supports multiple generation sources, giving you a wide range of options for creating unique visual works. The user-friendly and intuitive interface allows you to easily configure all settings and quickly obtain results.
-                                </p>
-                                <p class="project-category">Android</p>
-                            </ul>
-                        </a>
-                    </li>
-                    
-                    <li class="project-item  active" data-filter-item data-category="mobile app">
-                        <a href="/HTTP-FS-Desktop-Intro/" target="_blank">
-                            <ul class="content-card">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline" role="img" class="md hydrated" aria-label="eye outline"></ion-icon>
-                                </div>
-                                <figure class="project-img">
-                                    <img src="./assets/images/portfolio/banner_httpfs_d.png" alt="Http FS (Desktop)" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Http FS (Desktop)</h3>
-                                <p class="project-description">
-                                    This is a http/https server for sharing files between users on a Wi-Fi network. For mac and windows OS. You can run a server on a Wi-Fi or local network and share files by selecting any available folder on your device
-                                </p>
-                                <p class="project-category">Node js</p>
-                            </ul>
-                        </a>
-                    </li>
+            <div class="scroll-indicator">
+                <span></span>
+            </div>
+        </section>
 
-                    <li class="project-item  active" data-filter-item data-category="mobile app">
-                        <a href="/WebDav-FS-Intro/" target="_blank">
-                            <ul class="content-card">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline" role="img" class="md hydrated" aria-label="eye outline"></ion-icon>
-                                </div>
-                                <figure class="project-img">
-                                    <img src="./assets/images/portfolio/banner_webdavfs.png" alt="WebDAV FS" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">WebDAV FS</h3>
-                                <p class="project-description">
-                                    Simple and secure application that provides a local WebDav/FTP server for remote file management. You can easily set a password, select any folder on your device, set read-only mode, and enable a secure TLS connection for better security.
-                                </p>
-                                <p class="project-category">Android</p>
-                            </ul>
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="mobile app">
-                        <a href="/Http-FS-Intro/" target="_blank">
-                            <ul class="content-card">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline" role="img" class="md hydrated" aria-label="eye outline"></ion-icon>
-                                </div>
-                                <figure class="project-img">
-                                    <img src="./assets/images/portfolio/banner_httpfs_a.png" alt="Http FS" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Http FS</h3>
-                                <p class="project-description">
-                                    This is a android http, webdav server for sharing files between users on a Wi-Fi network. HTTP FS is a dynamic file-sharing application designed to simplify the transfer of files across devices within your Wi-Fi network or through a created hotspot.
-                                </p>
-                                <p class="project-category">Android</p>
-                            </ul>
-                        </a>
-                    </li>
-
-                </ul>
-
-            </section>
-
-        </article>
-
-
-        <!--
-          - #Contacts
-        -->
-
-        <article class="contacts" data-page="contacts">
-
-            <header>
-                <h2 class="h2 article-title">Contacts</h2>
-            </header>
-            <section class="service">
-            <ul class="service-list">
-                <a href="mailto:tiar.develop@gmail.com" target="_blank" class="service-item">
-                    <div class="icon-box">
-                        <ion-icon name="mail-sharp"></ion-icon>
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="container">
+                <h2 data-i18n="about.title">About Me</h2>
+                <div class="about-grid reveal">
+                    <div class="about-text" data-i18n="about.text">
+                        Welcome. I'm Vasyl Raiskyi, a freelance Android developer from Ukraine. I specialize in building
+                        robust applications for mobile and Android TV using <strong>Kotlin</strong> and <strong>Java</strong>. 
+                        Currently expanding my expertise into <strong>Python development</strong> while maintaining a strong foundation 
+                        in Android ecosystem. As a self-taught developer, I'm always eager to take on new challenges and 
+                        seize opportunities to learn and grow.
                     </div>
-                    <div class="service-content-box">
-                        <h4 class="h4 service-item-title">Email </h4>
-                        <p class="service-item-text">
-                            tiar.develop@gmail.com
-                        </p>
+                    <div class="about-image">
+                        <img src="./assets/images/my-avatar.png" alt="Vasyl Raiskyi">
                     </div>
-                </a>
+                </div>
+            </div>
+        </section>
 
-                <a href="tel:+380953398123" target="_blank" class="service-item">
-                    <div class="icon-box">
-                        <ion-icon name="phone-portrait-sharp"></ion-icon>
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+            <div class="container">
+                <h2 data-i18n="skills.title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category reveal">
+                        <h3 data-i18n="skills.languages">Languages</h3>
+                        <p>Kotlin, Java, Python, JavaScript</p>
                     </div>
-                    <div class="service-content-box">
-                        <h4 class="h4 service-item-title">Phone </h4>
-                        <p class="service-item-text">
-                            +380953398123
-                        </p>
+                    <div class="skill-category reveal">
+                        <h3 data-i18n="skills.frameworks">Frameworks</h3>
+                        <p>Android SDK, Jetpack Compose, Node.js</p>
                     </div>
-                </a>
-
-                <a href="https://t.me/tiardev"  target="_blank" class="service-item">
-                    <div class="icon-box">
-                        <ion-icon name="send-sharp"></ion-icon>
+                    <div class="skill-category reveal">
+                        <h3 data-i18n="skills.database">Database</h3>
+                        <p>SQLite, RoomDB, MySql</p>
                     </div>
-                    <div class="service-content-box">
-                        <h4 class="h4 service-item-title">Telegram </h4>
-                        <p class="service-item-text">
-                            @TiarDev
-                        </p>
+                    <div class="skill-category reveal">
+                        <h3 data-i18n="skills.networking">Networking</h3>
+                        <p>REST API, Ktor, OkHttp, Retrofit, WebView</p>
                     </div>
-                </a>
-
-                <a href="https://linkedin.com/in/tiarait" target="_blank" class="service-item">
-                    <div class="icon-box">
-                        <ion-icon name="logo-linkedin"></ion-icon>
+                    <div class="skill-category reveal">
+                        <h3 data-i18n="skills.arch">Architecture</h3>
+                        <p>MVVM, Clean Architecture</p>
                     </div>
-                    <div class="service-content-box">
-                        <h4 class="h4 service-item-title">LinkedIn </h4>
-                        <p class="service-item-text">
-                            @tiarait
-                        </p>
+                    <div class="skill-category reveal">
+                        <h3 data-i18n="skills.integrations">Integrations</h3>
+                        <p>Google AdMob, Firebase, GitHub Actions</p>
                     </div>
-                </a>
-            </ul>
-            </section>
+                </div>
+            </div>
+        </section>
 
-        </article>
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="container">
+                <h2 data-i18n="projects.title">Selected Works</h2>
+                <div id="project-list" class="project-grid">
+                    <!-- Projects injected by JS -->
+                </div>
+            </div>
+        </section>
 
-    </div>
+        <!-- Resume Section -->
+        <!-- <section id="resume" class="section resume">
+            <div class="container">
+                <h2 data-i18n="resume.title">Resume</h2>
+                <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="./assets/Resume_Vasyl_Raiskyi_en.pdf" class="btn-secondary"
+                        target="_blank">Download EN</a>
+                    <a href="./assets/Resume_Vasyl_Raiskyi_ua.pdf" class="btn-secondary"
+                        target="_blank">Download UA</a>
+                </div>
+            </div>
+        </section> -->
 
-</main>
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2 data-i18n="contact.title">Get in Touch</h2>
+                <div class="contact-links">
+                    <a href="mailto:tiar.develop@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="https://github.com/tiarait" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                    <a href="https://linkedin.com/in/tiarait" target="_blank" title="LinkedIn"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a href="https://t.me/tiardev" target="_blank" title="Telegram"><i class="bi bi-telegram"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <footer>
+        <p>&copy; 2025 Vasyl Raiskyi. Built with passion.</p>
+    </footer>
 
-<!--
-  - custom js link
--->
-<script src="./assets/js/script.js"></script>
-
-<!--
-  - ionicon link
--->
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>

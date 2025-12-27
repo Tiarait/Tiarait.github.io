@@ -1,373 +1,463 @@
-'use strict';
+// =============================================
+// TRANSLATIONS
+// =============================================
+const translations = {
+    en: {
+        "nav.about": "About",
+        "nav.skills": "Skills",
+        "nav.projects": "Projects",
+        "nav.contact": "Contact",
+        "hero.title": "Vasyl Raiskyi",
+        "hero.subtitle": "Android Developer",
+        "hero.cta": "View Portfolio",
+        "about.title": "About Me",
+        "about.text": "Welcome. I'm Vasyl Raiskyi, a freelance Android developer from Ukraine. I specialize in building robust applications for mobile and Android TV, Telegram bots and other digital solutions. As a developer, I'm always eager to take on new challenges and seize opportunities to learn and grow. I'm dedicated to improving my skills and have a strong work ethic.",
+        "projects.title": "Selected Works",
+        "resume.title": "Resume",
+        "contact.title": "Contacts",
+        "skills.title": "Technical Skills",
+        "skills.languages": "Languages",
+        "skills.frameworks": "Frameworks",
+        "skills.database": "Database",
+        "skills.networking": "Networking",
+        "skills.arch": "Architecture",
+        "skills.integrations": "Integrations"
+    },
+    uk: {
+        "nav.about": "Про мене",
+        "nav.skills": "Навички",
+        "nav.projects": "Проекти",
+        "nav.contact": "Контакти",
+        "hero.title": "Василь Райський",
+        "hero.subtitle": "Android Розробник",
+        "hero.cta": "Портфоліо",
+        "about.title": "Про Мене",
+        "about.text": "Вітаю. Мене звати Василь Райський, я Android-розробник-фрілансер з України. Спеціалізуюся на створенні надійних застосунків для мобільних пристроїв і Android TV, Telegram-ботів та інших цифрових рішень. Як розробник, постійно шукаю нові виклики й можливості для професійного розвитку.",
+        "projects.title": "Проекти",
+        "resume.title": "Резюме",
+        "contact.title": "Зв'язатися зі мною",
+        "skills.title": "Технічні навички",
+        "skills.languages": "Мови",
+        "skills.frameworks": "Фреймворки",
+        "skills.database": "Бази даних",
+        "skills.networking": "Технології та бібліотеки",
+        "skills.arch": "Архітектура",
+        "skills.integrations": "Інтеграції"
+    }
+};
 
+// =============================================
+// PROJECTS DATA
+// =============================================
+const projects = [
+    {
+        id: "devsurf",
+        title: { en: "DevSurf", uk: "DevSurf" },
+        desc: {
+            en: "DevSurf is a mobile web browser with built-in developer tools. Inspect pages, run JavaScript, view logs, and debug websites directly on your device.",
+            uk: "DevSurf — це мобільний веббраузер із вбудованими інструментами для розробників. Перевіряйте сторінки, запускайте JavaScript, переглядайте журнали та налагоджуйте вебсайти безпосередньо на своєму пристрої."
+        },
+        category: "Android",
+        link: "/DevSurf-Intro/",
+        img: "./assets/images/portfolio/banner_devsurf.png"
+    },
+    {
+        id: "poi",
+        title: { en: "Universal Bot", uk: "Universal Bot" },
+        desc: {
+            en: "AI-powered Telegram Bot – multi-language bot for math calculations, media downloads, audio/video processing, Telegram message parsing, and chat info.",
+            uk: "Telegram-бот на базі штучного інтелекту – багатомовний бот для математичних розрахунків, завантаження медіа, обробки аудіо/відео, розбору повідомлень Telegram та інформації в чаті."
+        },
+        category: "Python. Telegram bot",
+        link: "https://github.com/Tiarait/Universal-Bot",
+        img: "./assets/images/portfolio/banner_tg.png"
+    },
+    {
+        id: "aimuse",
+        title: { en: "AI Muse", uk: "AI Muse" },
+        desc: {
+            en: "Generates images using advanced AI APIs. Supports multiple sources and refined settings.",
+            uk: "Генерація зображень за допомогою передових AI API. Підтримка декількох джерел."
+        },
+        category: "Android",
+        link: "/AI-MUSE-Intro/",
+        img: "./assets/images/portfolio/banner_aimuse.png"
+    },
+    {
+        id: "httpfs-desktop",
+        title: { en: "Http FS (Desktop)", uk: "Http FS (Desktop)" },
+        desc: {
+            en: "HTTP/HTTPS server for sharing files over Wi-Fi. Available for Mac and Windows.",
+            uk: "HTTP/HTTPS сервер для обміну файлами через Wi-Fi. Для Mac та Windows."
+        },
+        category: "Node.js",
+        link: "/HTTP-FS-Desktop-Intro/",
+        img: "./assets/images/portfolio/banner_httpfs_d.png"
+    },
+    {
+        id: "webdavfs",
+        title: { en: "WebDAV FS", uk: "WebDAV FS" },
+        desc: {
+            en: "Secure local WebDAV/FTP server for remote file management with TLS support.",
+            uk: "Безпечний локальний WebDAV/FTP сервер для віддаленого управління файлами."
+        },
+        category: "Android",
+        link: "/WebDav-FS-Intro/",
+        img: "./assets/images/portfolio/banner_webdavfs.png"
+    },
+    {
+        id: "httpfs",
+        title: { en: "Http FS", uk: "Http FS" },
+        desc: {
+            en: "Dynamic file-sharing application for Wi-Fi networks and hotspots.",
+            uk: "Динамічний додаток для обміну файлами в мережах Wi-Fi."
+        },
+        category: "Android",
+        link: "/Http-FS-Intro/",
+        img: "./assets/images/portfolio/banner_httpfs_a.png"
+    }
+];
 
+// =============================================
+// STATE
+// =============================================
+// Get language from browser or saved, default to 'en'
+let currentLang = localStorage.getItem('language') || 
+    (navigator.language.startsWith('uk') ? 'uk' : 'en');
 
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+// Get theme from browser or saved, default to 'light'
+let currentTheme = localStorage.getItem('theme') || 
+    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
+// =============================================
+// RENDER PROJECTS
+// =============================================
+function renderProjects() {
+    const list = document.getElementById('project-list');
+    if (!list) return;
 
+    list.innerHTML = '';
+    projects.forEach((p, index) => {
+        const card = document.createElement('div');
+        card.className = 'project-card reveal';
+        card.innerHTML = `
+            <div class="project-img-wrapper">
+                <img src="${p.img}" alt="${p.title[currentLang]}" class="project-img">
+            </div>
+            <div class="project-card-content">
+                <p class="project-category">${p.category}</p>
+                <h3>${p.title[currentLang]}</h3>
+                <p>${p.desc[currentLang]}</p>
+                <a href="${p.link}" target="_blank" class="btn-secondary">View Details</a>
+            </div>
+        `;
+        list.appendChild(card);
+    });
 
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-
-
-
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
-
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
-
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
+    // Re-observe new elements after a short delay
+    setTimeout(observeElements, 100);
 }
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
-
-  testimonialsItem[i].addEventListener("click", function () {
-
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
-
-    testimonialsModalFunc();
-
-  });
-
+// =============================================
+// UPDATE LANGUAGE
+// =============================================
+function updateLanguage() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+            el.innerText = translations[currentLang][key];
+        }
+    });
+    document.getElementById('lang-switch').innerText = currentLang.toUpperCase();
+    localStorage.setItem('language', currentLang);
+    renderProjects();
 }
 
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+// =============================================
+// PARALLAX SCROLLING
+// =============================================
+let parallaxElements = [];
+let ticking = false;
 
-
-
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
-
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
-
-  });
+function initParallax() {
+    parallaxElements = document.querySelectorAll('.parallax-layer');
 }
 
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
-const filterFunc = function (selectedValue) {
-
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
-    }
-
-  }
-
-}
-
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-
-  filterBtn[i].addEventListener("click", function () {
-
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
-
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
-
-  });
-
-}
-
-
-
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
-
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
-
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
-    }
-
-  });
-}
-
-
-
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
-
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
-  });
-}
-
-const switchTheme = document.querySelector("#switch-theme");
-switchTheme.addEventListener("click", function () { 
-  toggleTheme();
- });
-var theme = localStorage.getItem('theme') || "day";
-function toggleTheme() {
-  switchTheme.classList.remove('day', 'night');
-  if (theme === 'night') {
-    localStorage.setItem('theme', 'day');
-    theme = 'day';
-  } else {
-    localStorage.setItem('theme', 'night');
-    theme = 'night';
-  }
-  updTheme()
-}
-
-function updTheme() {
-  document.documentElement.setAttribute("data-theme", theme);
-  switchTheme.classList.add(theme);
-   
-  document.getElementById('checkbox').checked = (theme === 'day');
-}
-document.addEventListener('DOMContentLoaded', function() {
-  theme = localStorage.getItem('theme') || "day";
-  updTheme();
-});
-
-(function() {
-
-    var width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
-
-    // Main
-    initHeader();
-    initAnimation();
-    addListeners();
-
-    function initHeader() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        target = {x: width/2, y: height/2};
-
-        largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = height+'px';
-
-        canvas = document.getElementById('demo-canvas');
-        canvas.width = width;
-        canvas.height = height;
-        ctx = canvas.getContext('2d');
-
-        // create points
-        points = [];
-        for(var x = 0; x < width; x = x + width/20) {
-            for(var y = 0; y < height; y = y + height/20) {
-                var px = x + Math.random()*width/20;
-                var py = y + Math.random()*height/20;
-                var p = {x: px, originX: px, y: py, originY: py };
-                points.push(p);
-            }
-        }
-
-        // for each point find the 5 closest points
-        for(var i = 0; i < points.length; i++) {
-            var closest = [];
-            var p1 = points[i];
-            for(var j = 0; j < points.length; j++) {
-                var p2 = points[j]
-                if(!(p1 == p2)) {
-                    var placed = false;
-                    for(var k = 0; k < 5; k++) {
-                        if(!placed) {
-                            if(closest[k] == undefined) {
-                                closest[k] = p2;
-                                placed = true;
-                            }
-                        }
-                    }
-
-                    for(var k = 0; k < 5; k++) {
-                        if(!placed) {
-                            if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
-                                closest[k] = p2;
-                                placed = true;
-                            }
-                        }
-                    }
-                }
-            }
-            p1.closest = closest;
-        }
-
-        // assign a circle to each point
-        for(var i in points) {
-            var c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
-            points[i].circle = c;
-        }
-    }
-
-    // Event handling
-    function addListeners() {
-        if(!('ontouchstart' in window)) {
-            window.addEventListener('mousemove', mouseMove);
-        }
-        window.addEventListener('scroll', scrollCheck);
-        window.addEventListener('resize', resize);
-    }
-
-    function mouseMove(e) {
-        var posx = posy = 0;
-        if (e.pageX || e.pageY) {
-            posx = e.pageX;
-            posy = e.pageY;
-        }
-        else if (e.clientX || e.clientY)    {
-            posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-            posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-        }
-        target.x = posx;
-        target.y = posy;
-    }
-
-    function scrollCheck() {
-        if(document.body.scrollTop > height) animateHeader = false;
-        else animateHeader = true;
-    }
-
-    function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
-        largeHeader.style.height = height+'px';
-        canvas.width = width;
-        canvas.height = height;
-    }
-
-    // animation
-    function initAnimation() {
-        animate();
-        for(var i in points) {
-            shiftPoint(points[i]);
-        }
-    }
-
-    function animate() {
-        if(animateHeader) {
-            ctx.clearRect(0,0,width,height);
-            for(var i in points) {
-                // detect points in range
-                if(Math.abs(getDistance(target, points[i])) < 4000) {
-                    points[i].active = 0.3;
-                    points[i].circle.active = 0.6;
-                } else if(Math.abs(getDistance(target, points[i])) < 20000) {
-                    points[i].active = 0.1;
-                    points[i].circle.active = 0.3;
-                } else if(Math.abs(getDistance(target, points[i])) < 40000) {
-                    points[i].active = 0.02;
-                    points[i].circle.active = 0.1;
-                } else {
-                    points[i].active = 0;
-                    points[i].circle.active = 0;
-                }
-
-                drawLines(points[i]);
-                points[i].circle.draw();
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-
-    function shiftPoint(p) {
-        TweenLite.to(p, 1+1*Math.random(), {x:p.originX-50+Math.random()*100,
-            y: p.originY-50+Math.random()*100, ease:Circ.easeInOut,
-            onComplete: function() {
-                shiftPoint(p);
-            }});
-    }
-
-    // Canvas manipulation
-    function drawLines(p) {
-        if(!p.active) return;
-        for(var i in p.closest) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y);
-            ctx.lineTo(p.closest[i].x, p.closest[i].y);
-            ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
-            ctx.stroke();
-        }
-    }
-
-    function Circle(pos,rad,color) {
-        var _this = this;
-
-        // constructor
-        (function() {
-            _this.pos = pos || null;
-            _this.radius = rad || null;
-            _this.color = color || null;
-        })();
-
-        this.draw = function() {
-            if(!_this.active) return;
-            ctx.beginPath();
-            ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-            ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
-            ctx.fill();
-        };
-    }
-
-    // Util
-    function getDistance(p1, p2) {
-        return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
-    }
+function updateParallax() {
+    const scrolled = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const heroHeight = document.querySelector('.hero').offsetHeight;
+    const scrollPercent = scrolled / heroHeight;
     
-})();
+    // Fade out parallax container from 50% to 100% scroll
+    let opacity = 1;
+    if (scrollPercent > 0.3) {
+        opacity = Math.max(0, 1 - ((scrollPercent - 0.3) * 2));
+    }
+    document.querySelector('.parallax-container').style.opacity = opacity;
+    
+    parallaxElements.forEach(element => {
+        const speed = parseFloat(element.dataset.speed) || 0.5;
+        const layerClass = element.className.split(' ')[1]; // layer-back, layer-mid, etc.
+        
+        let yPos, scale;
+        
+        switch(layerClass) {
+            case 'layer-front':
+                // Moves down 3x slower than front (was layer-mid speed)
+                yPos = (scrolled * speed * 0.33);
+                scale = 1 + (scrolled * 0.0005);
+                break;
+            case 'layer-mid':
+                // Moves down 4x slower than front
+                yPos = (scrolled * speed * 0.33);
+                scale = 1 + (scrolled * 0.0001);
+                break;
+            case 'layer-back':
+                // Initially scaled, returns to normal size
+                yPos = -(scrolled * speed * 0.3);
+                scale = 1.1 - (scrolled * 0.0002);
+                break;
+            case 'layer-clouds':
+                // Moves up, combined with animation
+                yPos = -(scrolled * speed * 0.5);
+                scale = 1 + (scrolled * 0.0003);
+                break;
+            default:
+                yPos = -(scrolled * speed);
+                scale = 1 + (scrolled * 0.0005);
+        }
+        
+        element.style.transform = `translateY(${yPos}px) scale(${scale})`;
+    });
+    
+    ticking = false;
+}
+
+// =============================================
+// SCROLL PROGRESS AND ACTIVE NAVIGATION
+// =============================================
+function updateScrollProgress() {
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+}
+
+function updateActiveNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollY = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    
+    let currentSection = '';
+    let minDistance = Infinity;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        // Check if section is in view
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            currentSection = sectionId;
+        }
+        
+        // For last section, check if we're near bottom of page
+        if (sectionId === 'contact') {
+            const distanceToBottom = document.documentElement.scrollHeight - (scrollY + windowHeight);
+            if (distanceToBottom < 200) {
+                currentSection = 'contact';
+            }
+        }
+    });
+    
+    // Update active nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSection) {
+            link.classList.add('active');
+        }
+    });
+}
+
+function onScroll() {
+    lastScrollY = window.pageYOffset;
+
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            // Navbar scroll effect
+            const nav = document.querySelector('.navbar');
+            if (lastScrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            
+            // Parallax effect
+            if (parallaxElements.length > 0) {
+                updateParallax();
+            }
+            
+            // Update scroll progress
+            updateScrollProgress();
+            
+            // Update active navigation
+            updateActiveNavigation();
+            
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+// =============================================
+// SCROLL REVEAL ANIMATION
+// =============================================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -80px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+function observeElements() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// =============================================
+// SMOOTH SCROLL
+// =============================================
+function smoothScrollTo(target) {
+    const targetElement = document.querySelector(target);
+    if (!targetElement) return;
+    
+    targetElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+    });
+}
+
+// =============================================
+// EVENT LISTENERS
+// =============================================
+function initEventListeners() {
+    // Language switch
+    document.getElementById('lang-switch').addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'uk' : 'en';
+        updateLanguage();
+    });
+
+    // Scroll indicator click (arrow in hero)
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            smoothScrollTo('#about');
+        });
+    }
+
+    // Logo click
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+            e.preventDefault();
+            smoothScrollTo('#hero');
+        });
+    }
+
+    // Navigation links click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            smoothScrollTo(targetId);
+        });
+    });
+
+    // Primary button click
+    document.querySelectorAll('.btn-primary[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            smoothScrollTo(targetId);
+        });
+    });
+
+    // Theme switch
+    document.getElementById('theme-switch').addEventListener('click', () => {
+        currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        switchThemeWithAnimation();
+    });
+}
+
+// =============================================
+// THEME SWITCHING WITH PARALLAX IMAGES
+// =============================================
+function updateParallaxImages() {
+    const isDark = currentTheme === 'dark';
+    const images = document.querySelectorAll('.parallax-layer img');
+    
+    images.forEach(img => {
+        const currentSrc = img.src;
+        if (isDark) {
+            // Add -dark suffix for dark theme
+            if (!currentSrc.includes('-dark.png')) {
+                img.src = currentSrc.replace('.png', '-dark.png');
+            }
+        } else {
+            // Remove -dark suffix for light theme
+            img.src = currentSrc.replace('-dark.png', '.png');
+        }
+    });
+}
+
+function applyTheme() {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    const icon = document.querySelector('#theme-switch i');
+    icon.className = currentTheme === 'dark' ? 'bi bi-moon-stars-fill' : 'bi bi-sun-fill';
+    localStorage.setItem('theme', currentTheme);
+}
+
+function switchThemeWithAnimation() {
+    const parallaxContainer = document.querySelector('.parallax-container');
+    
+    // Fade out parallax container
+    parallaxContainer.style.opacity = '0';
+    
+    // Wait for fade out, then change theme and images
+    setTimeout(() => {
+        applyTheme();
+        updateParallaxImages();
+        
+        // Fade in parallax container
+        setTimeout(() => {
+            parallaxContainer.style.opacity = '1';
+        }, 50);
+    }, 400);
+}
+
+// =============================================
+// INITIALIZATION
+// =============================================
+document.addEventListener('DOMContentLoaded', () => {
+    // Apply saved theme and language first
+    applyTheme();
+    updateLanguage();
+    
+    // Initialize other features
+    observeElements();
+    initParallax();
+    initEventListeners();
+    
+    // Update parallax images after theme is applied
+    updateParallaxImages();
+});
