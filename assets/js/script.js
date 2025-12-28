@@ -154,7 +154,6 @@ function renderProjects() {
         list.appendChild(card);
     });
 
-    // Re-observe new elements after a short delay
     setTimeout(observeElements, 100);
 }
 
@@ -178,50 +177,99 @@ function updateLanguage() {
 // =============================================
 let parallaxElements = [];
 let ticking = false;
+let cloudsAnimation = null;
+let cloudsOffset = 0;
+let cloudsSpeed = 0.5;
+let cloudsWrapperWidth = 8000;
+let cloudsLoopWidth = 4000;
+
+if (window.innerWidth <= 768) {
+    cloudsSpeed = 0.3;
+}
 
 function initParallax() {
     parallaxElements = document.querySelectorAll('.parallax-layer');
+    
+    updateParallax();
+    startCloudsAnimation();
+}
+
+function startCloudsAnimation() {
+    const cloudsWrapper = document.querySelector('.clouds-wrapper');
+    if (!cloudsWrapper) return;
+    
+    let lastTime = 0;
+    const mobileFrameInterval = 1000 / 30;
+    
+    function animateClouds(currentTime) {
+        if (window.innerWidth <= 768) {
+            if (currentTime - lastTime < mobileFrameInterval) {
+                cloudsAnimation = requestAnimationFrame(animateClouds);
+                return;
+            }
+            lastTime = currentTime;
+        }
+        
+        cloudsOffset = (cloudsOffset - cloudsSpeed) % cloudsLoopWidth;
+        
+        const offsetPercentage = (cloudsOffset / cloudsWrapperWidth) * 100;
+        
+        cloudsWrapper.style.transform = `translateX(${offsetPercentage}%)`;
+        
+        cloudsAnimation = requestAnimationFrame(animateClouds);
+    }
+    
+    animateClouds(0);
+}
+
+function stopCloudsAnimation() {
+    if (cloudsAnimation) {
+        cancelAnimationFrame(cloudsAnimation);
+        cloudsAnimation = null;
+    }
 }
 
 function updateParallax() {
     const scrolled = window.pageYOffset;
     const windowHeight = window.innerHeight;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
+    const heroHeight = document.querySelector('.hero')?.offsetHeight || window.innerHeight;
     const scrollPercent = scrolled / heroHeight;
     
-    // Fade out parallax container from 50% to 100% scroll
     let opacity = 1;
     if (scrollPercent > 0.3) {
         opacity = Math.max(0, 1 - ((scrollPercent - 0.3) * 2));
     }
-    document.querySelector('.parallax-container').style.opacity = opacity;
+    
+    const parallaxContainer = document.querySelector('.parallax-container');
+    if (parallaxContainer) {
+        parallaxContainer.style.opacity = opacity;
+    }
+    
+    if (parallaxElements.length === 0) return;
     
     parallaxElements.forEach(element => {
         const speed = parseFloat(element.dataset.speed) || 0.5;
-        const layerClass = element.className.split(' ')[1]; // layer-back, layer-mid, etc.
+        const layerClass = element.className.split(' ')[1];
+        
+        if (layerClass === 'layer-clouds') {
+            element.style.transform = '';
+            return;
+        }
         
         let yPos, scale;
         
         switch(layerClass) {
             case 'layer-front':
-                // Moves down 3x slower than front (was layer-mid speed)
                 yPos = (scrolled * speed * 0.33);
                 scale = 1 + (scrolled * 0.0005);
                 break;
             case 'layer-mid':
-                // Moves down 4x slower than front
                 yPos = (scrolled * speed * 0.33);
                 scale = 1 + (scrolled * 0.0001);
                 break;
             case 'layer-back':
-                // Initially scaled, returns to normal size
                 yPos = -(scrolled * speed * 0.3);
                 scale = 1.1 - (scrolled * 0.0002);
-                break;
-            case 'layer-clouds':
-                // Moves up, combined with animation
-                yPos = -(scrolled * speed * 0.5);
-                scale = 1 + (scrolled * 0.0003);
                 break;
             default:
                 yPos = -(scrolled * speed);
@@ -257,12 +305,10 @@ function updateActiveNavigation() {
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
         
-        // Check if section is in view
         if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
             currentSection = sectionId;
         }
         
-        // For last section, check if we're near bottom of page
         if (sectionId === 'contact') {
             const distanceToBottom = document.documentElement.scrollHeight - (scrollY + windowHeight);
             if (distanceToBottom < 200) {
@@ -271,7 +317,6 @@ function updateActiveNavigation() {
         }
     });
     
-    // Update active nav link
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === '#' + currentSection) {
@@ -285,7 +330,6 @@ function onScroll() {
 
     if (!ticking) {
         requestAnimationFrame(() => {
-            // Navbar scroll effect
             const nav = document.querySelector('.navbar');
             if (lastScrollY > 80) {
                 nav.classList.add('scrolled');
@@ -293,15 +337,11 @@ function onScroll() {
                 nav.classList.remove('scrolled');
             }
             
-            // Parallax effect
             if (parallaxElements.length > 0) {
                 updateParallax();
             }
             
-            // Update scroll progress
             updateScrollProgress();
-            
-            // Update active navigation
             updateActiveNavigation();
             
             ticking = false;
@@ -404,7 +444,7 @@ function initEventListeners() {
 // =============================================
 function updateParallaxImages() {
     const isDark = currentTheme === 'dark';
-    const images = document.querySelectorAll('.parallax-layer img');
+    const images = document.querySelectorAll('.parallax-layer img, .clouds-wrapper img');
     
     images.forEach(img => {
         const currentSrc = img.src;
@@ -418,6 +458,12 @@ function updateParallaxImages() {
             img.src = currentSrc.replace('-dark.png', '.png');
         }
     });
+    
+    // Show parallax container after images are loaded
+    const parallaxContainer = document.querySelector('.parallax-container');
+    if (parallaxContainer) {
+        parallaxContainer.classList.add('loaded');
+    }
 }
 
 function applyTheme() {
