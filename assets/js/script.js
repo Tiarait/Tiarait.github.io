@@ -121,7 +121,10 @@ const projects = [
 // =============================================
 // BROWSER DETECTION
 // =============================================
-const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+const ua = navigator.userAgent.toLowerCase();
+const isSafari = /safari/.test(ua) &&
+    !/chrome|crios|fxios|edgios|optios|opr|brave/i.test(ua) &&
+    navigator.vendor && navigator.vendor.includes('Apple');
 
 // =============================================
 // STATE
@@ -133,6 +136,9 @@ let currentLang = localStorage.getItem('language') ||
 // Get theme from browser or saved, default to 'light'
 let currentTheme = localStorage.getItem('theme') || 
     (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+// Add browser flag class
+document.documentElement.classList.toggle('is-safari', isSafari);
 
 // =============================================
 // RENDER PROJECTS
@@ -188,13 +194,14 @@ let cloudsSpeed = 0.2;
 let cloudsWrapperWidth = 8000;
 let cloudsLoopWidth = 4000;
 
+if (isSafari) {
+    cloudsSpeed = 0.5;
+}
 if (window.innerWidth <= 768) {
     cloudsSpeed = 1.2;
 }
 
 function initParallax() {
-    if (isSafari) return; // Disable parallax on Safari
-    
     parallaxElements = document.querySelectorAll('.parallax-layer');
     
     updateParallax();
@@ -202,8 +209,6 @@ function initParallax() {
 }
 
 function startCloudsAnimation() {
-    if (isSafari) return; // Disable clouds animation on Safari
-    
     const cloudsWrapper = document.querySelector('.clouds-wrapper');
     if (!cloudsWrapper) return;
     
@@ -285,7 +290,10 @@ function updateParallax() {
                 scale = 1 + (scrolled * 0.0005);
         }
         
-        element.style.transform = `translateY(${yPos}px) scale(${scale})`;
+        const transformValue = isSafari
+            ? `translate3d(0, ${yPos}px, 0) scale(${scale})`
+            : `translateY(${yPos}px) scale(${scale})`;
+        element.style.transform = transformValue;
     });
     
     ticking = false;
@@ -346,7 +354,7 @@ function onScroll() {
                 nav.classList.remove('scrolled');
             }
             
-            if (!isSafari && parallaxElements.length > 0) {
+            if (parallaxElements.length > 0) {
                 updateParallax();
             }
             

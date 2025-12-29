@@ -864,12 +864,8 @@ footer {
 
 /* Safari-specific optimizations */
 @supports not (background: linear-gradient(white, white)) {
-    .parallax-container {
+    .layer-clouds {
         display: none;
-    }
-    
-    .hero {
-        background: var(--primary);
     }
     
     .hero-content h1 {
