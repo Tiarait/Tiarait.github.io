@@ -170,6 +170,12 @@ h3 {
     overflow: hidden;
 }
 
+@supports (height: 100dvh) {
+    .hero {
+        height: 100dvh;
+    }
+}
+
 .parallax-container {
     position: absolute;
     top: 0;
