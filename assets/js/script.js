@@ -119,6 +119,11 @@ const projects = [
 ];
 
 // =============================================
+// BROWSER DETECTION
+// =============================================
+const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+// =============================================
 // STATE
 // =============================================
 // Get language from browser or saved, default to 'en'
@@ -179,15 +184,17 @@ let parallaxElements = [];
 let ticking = false;
 let cloudsAnimation = null;
 let cloudsOffset = 0;
-let cloudsSpeed = 0.5;
+let cloudsSpeed = 0.2;
 let cloudsWrapperWidth = 8000;
 let cloudsLoopWidth = 4000;
 
 if (window.innerWidth <= 768) {
-    cloudsSpeed = 0.3;
+    cloudsSpeed = 1.2;
 }
 
 function initParallax() {
+    if (isSafari) return; // Disable parallax on Safari
+    
     parallaxElements = document.querySelectorAll('.parallax-layer');
     
     updateParallax();
@@ -195,6 +202,8 @@ function initParallax() {
 }
 
 function startCloudsAnimation() {
+    if (isSafari) return; // Disable clouds animation on Safari
+    
     const cloudsWrapper = document.querySelector('.clouds-wrapper');
     if (!cloudsWrapper) return;
     
@@ -337,7 +346,7 @@ function onScroll() {
                 nav.classList.remove('scrolled');
             }
             
-            if (parallaxElements.length > 0) {
+            if (!isSafari && parallaxElements.length > 0) {
                 updateParallax();
             }
             

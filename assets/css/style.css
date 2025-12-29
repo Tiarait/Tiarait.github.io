@@ -406,7 +406,8 @@ h3 {
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--accent);
-    backdrop-filter: blur(10px);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
     transition: var(--transition), color 0.8s ease, background 0.8s ease;
 }
 
@@ -859,6 +860,25 @@ footer {
 
 .reveal:nth-child(6) {
     transition-delay: 0.5s;
+}
+
+/* Safari-specific optimizations */
+@supports not (background: linear-gradient(white, white)) {
+    .parallax-container {
+        display: none;
+    }
+    
+    .hero {
+        background: var(--primary);
+    }
+    
+    .hero-content h1 {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    [data-theme="light"] .hero-content h1 {
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
 }
 
 /* =============================================
