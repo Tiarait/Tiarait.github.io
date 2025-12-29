@@ -45,6 +45,8 @@ body {
     transition: background 0.8s ease, color 0.8s ease;
 }
 
+html, body { height: 100vh } html, body { height: calc(var(--vh, 1vh) * 100) }
+
 /* =============================================
    SCROLL PROGRESS INDICATOR
 ============================================= */

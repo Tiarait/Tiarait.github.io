@@ -1,4 +1,16 @@
 // =============================================
+// MOBILE VIEWPORT FIX
+// =============================================
+function setViewportHeight() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('orientationchange', setViewportHeight);
+
+// =============================================
 // TRANSLATIONS
 // =============================================
 const translations = {
@@ -190,7 +202,7 @@ let parallaxElements = [];
 let ticking = false;
 let cloudsAnimation = null;
 let cloudsOffset = 0;
-let cloudsSpeed = 0.2;
+let cloudsSpeed = 0.3;
 let cloudsWrapperWidth = 8000;
 let cloudsLoopWidth = 4000;
 
@@ -198,7 +210,7 @@ if (isSafari) {
     cloudsSpeed = 0.5;
 }
 if (window.innerWidth <= 768) {
-    cloudsSpeed = 1.2;
+    cloudsSpeed = 0.8;
 }
 
 function initParallax() {
@@ -290,10 +302,7 @@ function updateParallax() {
                 scale = 1 + (scrolled * 0.0005);
         }
         
-        const transformValue = isSafari
-            ? `translate3d(0, ${yPos}px, 0) scale(${scale})`
-            : `translateY(${yPos}px) scale(${scale})`;
-        element.style.transform = transformValue;
+        element.style.transform = `translate3d(0, ${yPos}px, 0) scale(${scale})`;
     });
     
     ticking = false;
