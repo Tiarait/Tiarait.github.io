@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="color-scheme" content="light dark">
+    <title>Http FS</title>
+    <meta name="description" content="The online file sharing application works on the principle of a local HTTP server.">
+    <link rel="icon" href="assets/favicon.png">
+    <meta property="og:title" content="Http FS (file server)">
+    <meta property="og:description" content="The online file sharing application works on the principle of a local HTTP server.">
+    <meta property="og:image" content="assets/og-image.png">
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/icons.css">
+    <link rel="stylesheet" href="/assets/css/tobi.css">
+    <link rel="stylesheet" href="/assets/css/app-landing.css">
+</head>
+<body data-app-id="Http-FS-Intro">
+    <div class="scroll-progress"></div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-start">
+                <a href="/" class="logo">VR</a>
+            </div>
+            <span class="app-nav-title"></span>
+            <div class="controls">
+                <button id="theme-switch" class="btn-icon" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="app-main">
+        <section class="app-hero container reveal">
+            <div class="app-hero-grid">
+                <div class="app-hero-aside">
+                    <img class="app-logo" src="" alt="">
+                </div>
+                <div class="app-hero-body">
+                    <span class="app-category"></span>
+                    <h1 class="app-name"></h1>
+                    <p class="app-developer"><a href="/">Vasyl Raiskyi</a></p>
+                    <p class="app-tagline"></p>
+                    <a href="./help.html" class="help-link-top" data-app-help-link>
+                        <img src="/assets/images/app/info_y.png" alt="">
+                        <span><strong>User Help</strong> — settings &amp; guides</span>
+                    </a>
+                    <div class="app-actions app-actions--desktop" data-app-actions-desktop></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="app-actions app-actions--mobile" data-app-actions-mobile></div>
+
+        <section class="section reveal">
+            <div class="container">
+                <h2 class="section-title">Screenshots</h2>
+                <div class="app-screenshots-wrap">
+                    <div class="app-screenshots-list" data-app-screenshots></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section app-description reveal">
+            <div class="container">
+                <h2 class="section-title">Description</h2>
+                <div class="app-description-content" data-app-description></div>
+            </div>
+        </section>
+        <section class="section container reveal" data-related-apps></section>
+    </main>
+
+    <footer class="app-footer">
+        <div class="app-footer-inner">
+            <p>&copy; <span data-year></span> Vasyl Raiskyi</p>
+            <ul class="app-footer-links" data-app-footer></ul>
+        </div>
+    </footer>
+
+    <script src="/assets/js/projects.js"></script>
+    <script src="/assets/js/tobi.min.js"></script>
+    <script src="/assets/js/app-landing.js"></script>
+</body>
+</html>

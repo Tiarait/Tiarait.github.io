@@ -25,15 +25,29 @@ const translations = {
         "about.title": "About Me",
         "about.text": "Welcome. I'm Vasyl Raiskyi, a freelance Android developer from Ukraine. I specialize in building robust applications for mobile and Android TV, Telegram bots and other digital solutions. As a developer, I'm always eager to take on new challenges and seize opportunities to learn and grow. I'm dedicated to improving my skills and have a strong work ethic.",
         "projects.title": "Selected Works",
+        "projects.viewDetails": "View Details",
         "resume.title": "Resume",
-        "contact.title": "Contacts",
+        "contact.title": "Get in Touch",
+        "contact.email": "Email",
+        "contact.github": "GitHub",
+        "contact.linkedin": "LinkedIn",
+        "contact.telegram": "Telegram",
+        "footer.tagline": "Built with passion.",
+        "lang.switch": "Switch language",
+        "theme.switch": "Toggle theme",
         "skills.title": "Technical Skills",
         "skills.languages": "Languages",
+        "skills.languages.list": "Kotlin, Java, Python, JavaScript",
         "skills.frameworks": "Frameworks",
+        "skills.frameworks.list": "Android SDK, Jetpack Compose, Node.js",
         "skills.database": "Database",
+        "skills.database.list": "SQLite, RoomDB, MySQL",
         "skills.networking": "Networking",
+        "skills.networking.list": "REST API, Ktor, OkHttp, Retrofit, WebView",
         "skills.arch": "Architecture",
-        "skills.integrations": "Integrations"
+        "skills.arch.list": "MVVM, Clean Architecture",
+        "skills.integrations": "Integrations",
+        "skills.integrations.list": "Google AdMob, Firebase, GitHub Actions"
     },
     uk: {
         "nav.about": "Про мене",
@@ -46,89 +60,66 @@ const translations = {
         "about.title": "Про Мене",
         "about.text": "Вітаю. Мене звати Василь Райський, я Android-розробник-фрілансер з України. Спеціалізуюся на створенні надійних застосунків для мобільних пристроїв і Android TV, Telegram-ботів та інших цифрових рішень. Як розробник, постійно шукаю нові виклики й можливості для професійного розвитку.",
         "projects.title": "Проекти",
+        "projects.viewDetails": "Детальніше",
         "resume.title": "Резюме",
         "contact.title": "Зв'язатися зі мною",
+        "contact.email": "Електронна пошта",
+        "contact.github": "GitHub",
+        "contact.linkedin": "LinkedIn",
+        "contact.telegram": "Telegram",
+        "footer.tagline": "Створено з натхненням.",
+        "lang.switch": "Змінити мову",
+        "theme.switch": "Змінити тему",
         "skills.title": "Технічні навички",
         "skills.languages": "Мови",
+        "skills.languages.list": "Kotlin, Java, Python, JavaScript",
         "skills.frameworks": "Фреймворки",
+        "skills.frameworks.list": "Android SDK, Jetpack Compose, Node.js",
         "skills.database": "Бази даних",
-        "skills.networking": "Технології та бібліотеки",
+        "skills.database.list": "SQLite, RoomDB, MySQL",
+        "skills.networking": "Мережа",
+        "skills.networking.list": "REST API, Ktor, OkHttp, Retrofit, WebView",
         "skills.arch": "Архітектура",
-        "skills.integrations": "Інтеграції"
+        "skills.arch.list": "MVVM, Clean Architecture",
+        "skills.integrations": "Інтеграції",
+        "skills.integrations.list": "Google AdMob, Firebase, GitHub Actions"
     }
 };
 
-// =============================================
-// PROJECTS DATA
-// =============================================
-const projects = [
-    {
-        id: "devsurf",
-        title: { en: "DevSurf", uk: "DevSurf" },
-        desc: {
-            en: "DevSurf is a mobile web browser with built-in developer tools. Inspect pages, run JavaScript, view logs, and debug websites directly on your device.",
-            uk: "DevSurf — це мобільний веббраузер із вбудованими інструментами для розробників. Перевіряйте сторінки, запускайте JavaScript, переглядайте журнали та налагоджуйте вебсайти безпосередньо на своєму пристрої."
-        },
-        category: "Android",
-        link: "/DevSurf-Intro/",
-        img: "./assets/images/portfolio/banner_devsurf.png"
-    },
-    {
-        id: "poi",
-        title: { en: "Universal Bot", uk: "Universal Bot" },
-        desc: {
-            en: "AI-powered Telegram Bot – multi-language bot for math calculations, media downloads, audio/video processing, Telegram message parsing, and chat info.",
-            uk: "Telegram-бот на базі штучного інтелекту – багатомовний бот для математичних розрахунків, завантаження медіа, обробки аудіо/відео, розбору повідомлень Telegram та інформації в чаті."
-        },
-        category: "Python. Telegram bot",
-        link: "https://github.com/Tiarait/Universal-Bot",
-        img: "./assets/images/portfolio/banner_tg.png"
-    },
-    {
-        id: "aimuse",
-        title: { en: "AI Muse", uk: "AI Muse" },
-        desc: {
-            en: "Generates images using advanced AI APIs. Supports multiple sources and refined settings.",
-            uk: "Генерація зображень за допомогою передових AI API. Підтримка декількох джерел."
-        },
-        category: "Android",
-        link: "/AI-MUSE-Intro/",
-        img: "./assets/images/portfolio/banner_aimuse.png"
-    },
-    {
-        id: "httpfs-desktop",
-        title: { en: "Http FS (Desktop)", uk: "Http FS (Desktop)" },
-        desc: {
-            en: "HTTP/HTTPS server for sharing files over Wi-Fi. Available for Mac and Windows.",
-            uk: "HTTP/HTTPS сервер для обміну файлами через Wi-Fi. Для Mac та Windows."
-        },
-        category: "Node.js",
-        link: "/HTTP-FS-Desktop-Intro/",
-        img: "./assets/images/portfolio/banner_httpfs_d.png"
-    },
-    {
-        id: "webdavfs",
-        title: { en: "WebDAV FS", uk: "WebDAV FS" },
-        desc: {
-            en: "Secure local WebDAV/FTP server for remote file management with TLS support.",
-            uk: "Безпечний локальний WebDAV/FTP сервер для віддаленого управління файлами."
-        },
-        category: "Android",
-        link: "/WebDav-FS-Intro/",
-        img: "./assets/images/portfolio/banner_webdavfs.png"
-    },
-    {
-        id: "httpfs",
-        title: { en: "Http FS", uk: "Http FS" },
-        desc: {
-            en: "Dynamic file-sharing application for Wi-Fi networks and hotspots.",
-            uk: "Динамічний додаток для обміну файлами в мережах Wi-Fi."
-        },
-        category: "Android",
-        link: "/Http-FS-Intro/",
-        img: "./assets/images/portfolio/banner_httpfs_a.png"
+const CATEGORY_LABELS = {
+    'Android': { en: 'Android', uk: 'Android' },
+    'Node.js': { en: 'Node.js', uk: 'Node.js' },
+    'Python. Telegram bot': { en: 'Python · Telegram bot', uk: 'Python · Telegram-бот' }
+};
+
+function categoryLabel(category) {
+    return CATEGORY_LABELS[category]?.[currentLang] || category;
+}
+
+function resolveInitialLang() {
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang === 'uk' || urlLang === 'en') return urlLang;
+    const saved = localStorage.getItem('language');
+    if (saved === 'uk' || saved === 'en') return saved;
+    return navigator.language.startsWith('uk') ? 'uk' : 'en';
+}
+
+function syncLangToUrl() {
+    const url = new URL(window.location.href);
+    if (currentLang === 'uk') {
+        url.searchParams.set('lang', 'uk');
+    } else {
+        url.searchParams.delete('lang');
     }
-];
+    history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+}
+
+// =============================================
+// PROJECTS DATA (from projects.js)
+// =============================================
+const projects = typeof buildPortfolioProjects === 'function'
+    ? buildPortfolioProjects()
+    : [];
 
 // =============================================
 // BROWSER DETECTION
@@ -141,9 +132,8 @@ const isSafari = /safari/.test(ua) &&
 // =============================================
 // STATE
 // =============================================
-// Get language from browser or saved, default to 'en'
-let currentLang = localStorage.getItem('language') || 
-    (navigator.language.startsWith('uk') ? 'uk' : 'en');
+// Get language from URL, saved preference, or browser — default to 'en'
+let currentLang = resolveInitialLang();
 
 // Get theme from browser or saved, default to 'light'
 let currentTheme = localStorage.getItem('theme') || 
@@ -160,18 +150,19 @@ function renderProjects() {
     if (!list) return;
 
     list.innerHTML = '';
-    projects.forEach((p, index) => {
+    const viewDetails = translations[currentLang]['projects.viewDetails'];
+    projects.forEach((p) => {
         const card = document.createElement('div');
         card.className = 'project-card reveal';
         card.innerHTML = `
             <div class="project-img-wrapper">
-                <img src="${p.img}" alt="${p.title[currentLang]}" class="project-img">
+                <img src="${p.img}" alt="${p.title[currentLang]}" class="project-img" loading="lazy" decoding="async">
             </div>
             <div class="project-card-content">
-                <p class="project-category">${p.category}</p>
+                <p class="project-category">${categoryLabel(p.category)}</p>
                 <h3>${p.title[currentLang]}</h3>
                 <p>${p.desc[currentLang]}</p>
-                <a href="${p.link}" target="_blank" class="btn-secondary">View Details</a>
+                <a href="${p.link}" rel="noopener" class="btn-secondary">${viewDetails}</a>
             </div>
         `;
         list.appendChild(card);
@@ -184,14 +175,35 @@ function renderProjects() {
 // UPDATE LANGUAGE
 // =============================================
 function updateLanguage() {
+    document.documentElement.lang = currentLang === 'uk' ? 'uk' : 'en';
+
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[currentLang][key]) {
             el.innerText = translations[currentLang][key];
         }
     });
-    document.getElementById('lang-switch').innerText = currentLang.toUpperCase();
+
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const key = el.getAttribute('data-i18n-aria');
+        if (translations[currentLang][key]) {
+            el.setAttribute('aria-label', translations[currentLang][key]);
+        }
+    });
+
+    const langSwitch = document.getElementById('lang-switch');
+    if (langSwitch) {
+        langSwitch.innerText = currentLang.toUpperCase();
+        langSwitch.setAttribute('aria-label', translations[currentLang]['lang.switch']);
+    }
+
+    const themeSwitch = document.getElementById('theme-switch');
+    if (themeSwitch) {
+        themeSwitch.setAttribute('aria-label', translations[currentLang]['theme.switch']);
+    }
+
     localStorage.setItem('language', currentLang);
+    syncLangToUrl();
     renderProjects();
 }
 
@@ -350,6 +362,8 @@ function updateActiveNavigation() {
         }
     });
 }
+
+let lastScrollY = 0;
 
 function onScroll() {
     lastScrollY = window.pageYOffset;
@@ -521,6 +535,9 @@ function switchThemeWithAnimation() {
 // INITIALIZATION
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
+    const yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
     // Apply saved theme and language first
     applyTheme();
     updateLanguage();

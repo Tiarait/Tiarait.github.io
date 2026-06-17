@@ -22,11 +22,6 @@ I'm here to assist you. Please <b>explore my portfolio</b>, and feel free to rea
 - Gradle, Proguard
 - Git, HTML, CSS, JavaScript
 
-# Experiance
-- Android developer in Anterra Group - Georgia (December 2019 - **June 2024**)
-
-- Android development for yoursels. Developed online cinema Kinotor for android devices. And client for Kinotrend. (November 2018 - October 2019)
-
 # Education
 - MASTER Software engineering in CHERNIHIV NATIONAL TECHNOLOGICAL UNIVERSITY (September 2017 - June 2019)
 - BACHELOR Software engineering in INTERNATIONAL SCIENCE AND TECHNOLOGY UNIVERSITY (September 2013 - June 2017)

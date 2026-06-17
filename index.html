@@ -5,28 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="color-scheme" content="light dark"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vasyl Raiskyi | Tiar Apps</title>
+    <title>Vasyl Raiskyi — Android Developer | Tiar Apps</title>
     <meta name="description"
-        content="Vasyl Raiskyi - Freelance Android Developer from Ukraine.">
+        content="Vasyl Raiskyi — Freelance Android Developer from Ukraine. Creator of Http FS, WebDAV FS, DevSurf, M3U Tools, and AI Muse. Specializes in Kotlin, Java, Python, and mobile app development.">
+    <meta name="author" content="Vasyl Raiskyi">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Android Developer, Kotlin, Java, mobile apps, Http FS, WebDAV, DevSurf, M3U Tools, Ukraine, freelance">
+    <link rel="canonical" href="https://tiarait.github.io/">
+    <link rel="alternate" hreflang="en" href="https://tiarait.github.io/">
+    <link rel="alternate" hreflang="uk" href="https://tiarait.github.io/?lang=uk">
+    <link rel="alternate" hreflang="x-default" href="https://tiarait.github.io/">
 
     <meta property="og:site_name" content="Tiar Apps"/>
-    <meta property="og:title" content="Vasyl Raiskyi | Tiar Apps"/>
+    <meta property="og:title" content="Vasyl Raiskyi — Android Developer | Tiar Apps"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:description" content="Vasyl Raiskyi - Freelance Android Developer from Ukraine."/>
-    <!-- <meta property="og:image" content="./assets/img/card.jpg?v=b9dc5d1b"/> -->
-    <meta property="og:image:type" content="image/jpeg"/>
+    <meta property="og:description" content="Freelance Android Developer from Ukraine. Creator of Http FS, WebDAV FS, DevSurf, M3U Tools, and AI Muse. Kotlin · Java · Python."/>
+    <meta property="og:image" content="https://tiarait.github.io/assets/images/card.png"/>
+    <meta property="og:image:type" content="image/png"/>
     <meta property="og:image:width" content="1280"/>
     <meta property="og:image:height" content="800"/>
     <meta property="og:url" content="https://tiarait.github.io/"/>
     <meta property="twitter:card" content="summary_large_image"/>
+    <meta property="twitter:creator" content="@tiardev"/>
+    <meta property="twitter:title" content="Vasyl Raiskyi — Android Developer"/>
+    <meta property="twitter:description" content="Freelance Android Developer from Ukraine. Creator of Http FS, WebDAV FS, DevSurf, M3U Tools, and AI Muse."/>
+    <meta property="twitter:image" content="https://tiarait.github.io/assets/images/card.png"/>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vasyl Raiskyi",
+        "url": "https://tiarait.github.io/",
+        "image": "https://tiarait.github.io/assets/images/card.png",
+        "jobTitle": "Android Developer",
+        "description": "Freelance Android Developer from Ukraine specializing in Kotlin, Java, and Python mobile applications.",
+        "nationality": "Ukrainian",
+        "sameAs": [
+            "https://github.com/tiarait",
+            "https://linkedin.com/in/tiarait",
+            "https://t.me/tiardev"
+        ],
+        "knowsAbout": ["Android Development", "Kotlin", "Java", "Python", "Mobile Apps", "WebDAV", "HTTP Servers"]
+    }
+    </script>
     
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/icons.css">
     <link rel="shortcut icon" href="./assets/images/icon.png" type="image/x-icon">
 </head>
 
@@ -45,8 +71,8 @@
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
             <div class="controls">
-                <button id="lang-switch" class="btn-icon">EN</button>
-                <button id="theme-switch" class="btn-icon"><i class="bi bi-moon-stars-fill"></i></button>
+                <button id="lang-switch" class="btn-icon" aria-label="Switch language">EN</button>
+                <button id="theme-switch" class="btn-icon" aria-label="Toggle theme"><i class="bi bi-moon-stars-fill"></i></button>
             </div>
         </nav>
     </header>
@@ -96,13 +122,11 @@
                 <div class="about-grid reveal">
                     <div class="about-text" data-i18n="about.text">
                         Welcome. I'm Vasyl Raiskyi, a freelance Android developer from Ukraine. I specialize in building
-                        robust applications for mobile and Android TV using <strong>Kotlin</strong> and <strong>Java</strong>. 
-                        Currently expanding my expertise into <strong>Python development</strong> while maintaining a strong foundation 
-                        in Android ecosystem. As a self-taught developer, I'm always eager to take on new challenges and 
-                        seize opportunities to learn and grow.
+                        robust applications for mobile and Android TV, Telegram bots and other digital solutions. As a developer,
+                        I'm always eager to take on new challenges and seize opportunities to learn and grow.
                     </div>
                     <div class="about-image">
-                        <img src="./assets/images/my-avatar.png" alt="Vasyl Raiskyi">
+                        <img src="./assets/images/my-avatar.png" alt="Vasyl Raiskyi" loading="lazy" decoding="async" width="380" height="380">
                     </div>
                 </div>
             </div>
@@ -115,27 +139,27 @@
                 <div class="skills-grid">
                     <div class="skill-category reveal">
                         <h3 data-i18n="skills.languages">Languages</h3>
-                        <p>Kotlin, Java, Python, JavaScript</p>
+                        <p data-i18n="skills.languages.list">Kotlin, Java, Python, JavaScript</p>
                     </div>
                     <div class="skill-category reveal">
                         <h3 data-i18n="skills.frameworks">Frameworks</h3>
-                        <p>Android SDK, Jetpack Compose, Node.js</p>
+                        <p data-i18n="skills.frameworks.list">Android SDK, Jetpack Compose, Node.js</p>
                     </div>
                     <div class="skill-category reveal">
                         <h3 data-i18n="skills.database">Database</h3>
-                        <p>SQLite, RoomDB, MySql</p>
+                        <p data-i18n="skills.database.list">SQLite, RoomDB, MySQL</p>
                     </div>
                     <div class="skill-category reveal">
                         <h3 data-i18n="skills.networking">Networking</h3>
-                        <p>REST API, Ktor, OkHttp, Retrofit, WebView</p>
+                        <p data-i18n="skills.networking.list">REST API, Ktor, OkHttp, Retrofit, WebView</p>
                     </div>
                     <div class="skill-category reveal">
                         <h3 data-i18n="skills.arch">Architecture</h3>
-                        <p>MVVM, Clean Architecture</p>
+                        <p data-i18n="skills.arch.list">MVVM, Clean Architecture</p>
                     </div>
                     <div class="skill-category reveal">
                         <h3 data-i18n="skills.integrations">Integrations</h3>
-                        <p>Google AdMob, Firebase, GitHub Actions</p>
+                        <p data-i18n="skills.integrations.list">Google AdMob, Firebase, GitHub Actions</p>
                     </div>
                 </div>
             </div>
@@ -169,20 +193,21 @@
             <div class="container">
                 <h2 data-i18n="contact.title">Get in Touch</h2>
                 <div class="contact-links">
-                    <a href="mailto:tiar.develop@gmail.com" title="Email"><i class="bi bi-envelope-fill"></i></a>
-                    <a href="https://github.com/tiarait" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
-                    <a href="https://linkedin.com/in/tiarait" target="_blank" title="LinkedIn"><i
+                    <a href="mailto:tiar.develop@gmail.com" data-i18n-aria="contact.email"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="https://github.com/tiarait" target="_blank" rel="noopener" data-i18n-aria="contact.github"><i class="bi bi-github"></i></a>
+                    <a href="https://linkedin.com/in/tiarait" target="_blank" rel="noopener" data-i18n-aria="contact.linkedin"><i
                             class="bi bi-linkedin"></i></a>
-                    <a href="https://t.me/tiardev" target="_blank" title="Telegram"><i class="bi bi-telegram"></i></a>
+                    <a href="https://t.me/tiardev" target="_blank" rel="noopener" data-i18n-aria="contact.telegram"><i class="bi bi-telegram"></i></a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Vasyl Raiskyi. Built with passion.</p>
+        <p>&copy; <span id="footer-year"></span> Vasyl Raiskyi. <span data-i18n="footer.tagline">Built with passion.</span></p>
     </footer>
 
+    <script src="assets/js/projects.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
 
